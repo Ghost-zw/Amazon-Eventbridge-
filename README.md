@@ -167,7 +167,8 @@ In this phase l am going to create a lambda function which is responsible for pr
 <img width="1905" height="796" alt="review 1" src="https://github.com/user-attachments/assets/ca7cb949-814a-4ca4-bf5b-b93cad738d87" />
 
 ---------------------------------------------------------------------------------------------------------------------------------------
-<img width="1893" height="802" alt="review 2" src="https://github.com/user-attachments/assets/d5864aed-3ca7-40aa-a6fa-4f3be5c115da" />
+
+<img width="1893" height="802" alt="review 2" src="https://github.com/user-attachments/assets/8ddd4fc6-5029-4664-afac-9940d6e1efc5" />
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -175,7 +176,8 @@ In this phase l am going to create a lambda function which is responsible for pr
 
 Now start an EC2 instance and check the subcribed email's inbox for notifications.
 
-<img width="1908" height="476" alt="testing 1" src="https://github.com/user-attachments/assets/5e143107-7b38-4935-b0cc-5d956935caca" />
+<img width="1908" height="476" alt="testing 1" src="https://github.com/user-attachments/assets/ed2c3bd7-a56f-40c9-8b10-2bbb33e888c9" />
+
  l successfully received a notification when l started my instance.
 
  --------------------------------------------------------------------------------------------------------------------------------------
