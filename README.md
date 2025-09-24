@@ -20,9 +20,8 @@ As we progress through this guide, we'll set up each of these components step by
   - Phase 1 : [Create SNS](#CreateSNSTopic)
   - Phase 2 : [Launch EC2 Instance](#LaunchEC2Instance )
   - Phase 3 : [Create Lambda Function](#Lambda)
-  - Phase 4 : [Deploy Application Logic](#DeployAppLogic)
-  - Phase 5 : [Setting Up the Rules with Eventbridge](#Eventbridge-Setup)
-  - Phase 6 : [Test the the whole solution and checking notifications](#Testing)
+  - Phase 4 : [Setting Up the Rules with Eventbridge](#Eventbridge-Setup)
+  - Phase 5 : [Test the the whole solution and checking notifications](#Testing)
 3. [Conclusion](#Conclusion)
 
 # Overview of an EC2 State Change Notification Architecture <a name="overview"></a>
@@ -117,6 +116,7 @@ In this phase l am going to create a lambda function which is responsible for pr
 
 <img width="1902" height="798" alt="execution policy role" src="https://github.com/user-attachments/assets/db38a73a-bce6-4c8c-a91d-f79290c4e04d" />
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 <img width="1875" height="785" alt="attach 2 policies" src="https://github.com/user-attachments/assets/00927a07-8546-4d48-824f-f89c22fd75bb" />
 
@@ -124,6 +124,70 @@ In this phase l am going to create a lambda function which is responsible for pr
 **4. Attach Lambda Execution role with a policy that allows lambda to publish to SNS Topic we created and create lambda function.** 
 
 <img width="1892" height="788" alt="execution role" src="https://github.com/user-attachments/assets/0074da60-382d-44aa-ab65-36430985c2d4" />
+
+
+**5. After creating lambda function, type in script for the logic of this solution using Python or any programming language. Deploy changes after typing script.**
+
+<img width="1883" height="796" alt="lambda function" src="https://github.com/user-attachments/assets/b06a3359-f42b-4127-979c-ab6c51407a26" />
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+## Phase 4: Setting Up the Rules with Eventbridge
+<a name="Eventbridge-Setup"></a>
+
+**1.Go to the EventBridge Console:**
+  2.Navigate to the Amazon EventBridge dashboard.
+  3.Create a Rule:
+  4.Click on "Rules".
+  5.Click "Create rule".
+  6.Enter a name for your rule (e.g., EC2StateChangeRule).
+  7.Define the Event Pattern:
+  8.Select Targets:
+  9.Choose "Lambda function" as the target.
+  10.Select the Lambda function you created (ec2_notification_state_change).
+  11.Create the Rule:
+  12.Click "Create rule" to finish.
+
+  **2. Enter Rule Name.**
+
+  <img width="1892" height="806" alt="creatin eventbridge rule name " src="https://github.com/user-attachments/assets/d7ba8167-86da-4a31-8990-5239e041ddca" />
+
+
+**3 Create Eventbridge Rule Patterns.**
+
+<img width="1917" height="796" alt="pattern 1" src="https://github.com/user-attachments/assets/913db260-6b9d-46ff-b125-9f282f080047" />
+
+
+**4 Select target which is our lambda function which we created before.**
+
+<img width="1887" height="795" alt="pattern 2" src="https://github.com/user-attachments/assets/3f461817-54ae-43af-9c0b-46b5a7f58ccf" />
+
+**5 Review and create Rule.**
+
+<img width="1905" height="796" alt="review 1" src="https://github.com/user-attachments/assets/ca7cb949-814a-4ca4-bf5b-b93cad738d87" />
+
+---------------------------------------------------------------------------------------------------------------------------------------
+<img width="1893" height="802" alt="review 2" src="https://github.com/user-attachments/assets/d5864aed-3ca7-40aa-a6fa-4f3be5c115da" />
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+## Phase 5: Test the the whole solution and checking notifications.
+
+Now start an EC2 instance and check the subcribed email's inbox for notifications.
+
+<img width="1908" height="476" alt="testing 1" src="https://github.com/user-attachments/assets/5e143107-7b38-4935-b0cc-5d956935caca" />
+ l successfully received a notification when l started my instance.
+
+ --------------------------------------------------------------------------------------------------------------------------------------
+
+<img width="1912" height="740" alt="testin 2" src="https://github.com/user-attachments/assets/3b94e8be-1f62-4480-8783-ef9f373f8edb" />
+
+These are the notifications l get for any EC2 state change.
+
+# Conclusion
+
+To further enhance this solution, you can edit the eventbridge rule to start and stop the instance at certain intervals for example from 08:00am - 1700pm, to prevent being charge for idle times when the instances are not in use
+
 
 
 
